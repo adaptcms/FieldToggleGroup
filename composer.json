@@ -1,0 +1,41 @@
+{
+  "name": "adaptcms/fieldtogglegroup",
+  "description": "Adaptcms FieldToggleGroup",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Charles Page",
+      "email": "charliepage88@gmail.com",
+      "homepage": "https://www.adaptcms.com/packages/adaptcmsfieldtogglegroup"
+    }
+  ],
+  "homepage": "https://github.com/adaptcms/fieldtogglegroup",
+  "keywords": [
+    "Laravel",
+    "Adaptcms",
+    "FieldToggleGroup"
+  ],
+  "require": {
+    "illuminate/support": "^8.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Adaptcms\\FieldToggleGroup\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Adaptcms\\FieldToggleGroup\\Tests\\": "tests"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Adaptcms\\FieldToggleGroup\\FieldToggleGroupServiceProvider"
+      ],
+      "aliases": {
+        "FieldToggleGroup": "Adaptcms\\FieldToggleGroup\\Facades\\FieldToggleGroup"
+      }
+    }
+  }
+}
