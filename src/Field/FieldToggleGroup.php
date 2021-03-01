@@ -34,11 +34,6 @@ class FieldToggleGroup extends FieldType
   // public $shouldNotSetData = true;
 
   /**
-  * @var boolean
-  */
-  public $isVisible = true;
-
-  /**
   * Migration Command
   * When a package field is made from this field, you must supply a valid
   * migration string in string format.
