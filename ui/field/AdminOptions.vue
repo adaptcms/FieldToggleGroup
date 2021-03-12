@@ -36,7 +36,14 @@
               class="inline-flex items-center px-5 py-4 bg-red-200 border border-red-300 text-sm leading-5 font-medium rounded-md text-red-500 bg-white hover:text-red-800 focus:outline-none focus:shadow-outline-red focus:border-red-300 active:text-red-900 active:bg-red-50 transition duration-150 ease-in-out opacity-75 hover:opacity-100"
               @click.prevent="deleteToggleItem(index)"
             >
-              <i class="fas fa-trash"></i>
+              <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                />
+              </svg>
             </button>
           </div>
         </div>
