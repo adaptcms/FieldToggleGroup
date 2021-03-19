@@ -6,7 +6,7 @@
       <Toggle
         :field="`${field.column_name}-${item.key}`"
         v-model="selected[item.key]"
-        @input="update(item.key, $event)"
+        @update:modelValue="update(item.key, $event)"
       />
     </div>
   </div>
@@ -17,7 +17,7 @@ import Toggle from '@/Adaptcms/Base/ui/components/Form/Toggle'
 
 export default {
   props: [
-    'value',
+    'modelValue',
     'field',
     'errors',
     'formMeta',
@@ -25,12 +25,16 @@ export default {
     'action'
   ],
 
+  emits: [
+    'update:modelValue'
+  ],
+
   components: {
     Toggle
   },
 
   watch: {
-    value (newVal, oldVal) {
+    modelValue (newVal, oldVal) {
       if (newVal !== oldVal && newVal !== 'null') {
         this.selected = JSON.parse(newVal)
       }
@@ -47,20 +51,20 @@ export default {
   methods: {
     update (key, $event) {
       if (typeof $event !== 'undefined') {
-        this.$set(this.selected, key, $event)
+        this.selected[key] = $event
 
-        this.$emit('input', JSON.stringify(this.selected))
+        this.$emit('update:modelValue', JSON.stringify(this.selected))
       }
     }
   },
 
   mounted () {
-    if (this.value && this.value !== 'null') {
-      this.selected = JSON.parse(this.value)
+    if (this.modelValue && this.modelValue !== 'null') {
+      this.selected = JSON.parse(this.modelValue)
     } else {
       let items = this.field.meta
       for (let i in items) {
-        this.$set(this.selected, items[i].key, false)
+        this.selected[items[i].key] = false
       }
     }
 

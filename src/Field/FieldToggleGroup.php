@@ -3,35 +3,29 @@
 namespace Adaptcms\FieldToggleGroup\Field;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
 
-use Adaptcms\Base\Models\PackageField;
 use Adaptcms\Fields\FieldType;
 
 class FieldToggleGroup extends FieldType
 {
   /**
-  * Rules applied when record is being stored with a post type.
-  *
   * @var array
   */
-  public $storeRules = [
-    //
+  public $defaultSettings = [
+    'options' => [
+      'is_sortable'        => false,
+      'is_searchable'      => false,
+      'is_required_create' => false,
+      'is_required_edit'   => false
+    ],
+    'action_rules' => [
+      'index'  => false,
+      'create' => true,
+      'edit'   => true,
+      'show'   => true,
+      'search' => false
+    ]
   ];
-
-  /**
-  * Rules applied when record is being updated with a post type.
-  *
-  * @var array
-  */
-  public $updateRules = [
-    //
-  ];
-
-  /**
-  * @var boolean
-  */
-  // public $shouldNotSetData = true;
 
   /**
   * Migration Command
@@ -58,18 +52,10 @@ class FieldToggleGroup extends FieldType
   */
   public function getValue($value)
   {
-    return $value;
-  }
+    // if (!empty($value)) {
+    //   $value = json_decode($value, true);
+    // }
 
-  /**
-  * Set Value
-  *
-  * @param mixed $value
-  *
-  * @return void
-  */
-  public function setValue($value)
-  {
     return $value;
   }
 
